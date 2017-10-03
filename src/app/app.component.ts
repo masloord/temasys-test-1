@@ -45,7 +45,7 @@ this.sl.on('peerJoined', function(peerId, peerInfo ,isSelf){
 this.sl.on('incomingStream', function(peerId, stream, isSelf) {
   if(isSelf) return;
   var vid = document.getElementById(peerId);
-  AdapterJS.attachMediaStream(vid, stream);
+  AdapterJS.attachMediaStream(document.getElementById('localVideo'), stream);
 });
 
 this.sl.on('addPeerStream', function(peerId, stream){
