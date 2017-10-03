@@ -12,13 +12,13 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod",
-    "start": "node Server.js"
+    "preinstall":   "npm install -g http-server",
+    "postinstall":  "ng build --prod",
+     "start":"http-server dist/"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.2.4",
-"@angular/cli": "1.3.2",
     "@angular/common": "^4.2.4",
     "@angular/compiler": "^4.2.4",
     "@angular/core": "^4.2.4",
