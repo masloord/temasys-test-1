@@ -2,7 +2,7 @@
   "name": "test-temasys",
   "version": "0.0.0",
   "engines": {
-    "node": "6.11.1",
+    "node": "~6.10.3",
     "npm":"~3.10.5"
   },
   "main":"server.js",
