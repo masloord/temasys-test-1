@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "engines": {
     "node": "6.11.1",
-    "npm":"4.6.1"
+    "npm":"~3.10.5"
   },
   "main":"server.js",
   "license": "MIT",
