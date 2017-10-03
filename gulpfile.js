@@ -3,7 +3,7 @@ var connect = require('gulp-connect')
 gulp.task('serve-prod', function () {
   var history = require('connect-history-api-fallback')
   return connect.server({
-    root: 'build',
+    root: 'dist',
     port: process.env.PORT || 5000,
     livereload: false,
     middleware: function (connect, opt) {
