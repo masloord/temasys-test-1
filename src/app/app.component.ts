@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 declare var Skylink: any;
 declare var AdapterJS: any;
-import * as AdapterJS from 'adapterjs'
+
 
 @Component({
   selector: 'app-root',
