@@ -53,7 +53,7 @@ this.sl.on('peerLeft', function(peerId) {
 });
 
 this.sl.on('mediaAccessSuccess', function(stream) {
-  var vid = document.getElementById('myvideo');
+  var vid = document.getElementById('localVideo');
   AdapterJS.attachMediaStream(vid, stream);
 });
 
