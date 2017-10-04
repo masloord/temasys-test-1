@@ -60,6 +60,10 @@ this.sl.on('mediaAccessSuccess', function(stream) {
 
 
 this.sl.init(this.appKey, function (error, success) {
+    this.sl.joinRoom("testxx"); // Goes to "testxx" Room
+  });
+
+this.sl.init(this.appKey, function (error, success) {
     if (error) return;
     this.sl.joinRoom(); // Goes to default Room
   });
@@ -78,19 +82,31 @@ this.sl.init(this.appKey, function (error, success) {
 
 }
 
+// joinRoom() {
+//   this.sl.joinRoom({
+//     audio: true,
+//     video: true
+//   }, function (error, success) {
+//     if (error) {
+//       document.getElementById('status').innerHTML = 'Failed joining room.<br>' +
+//   'Error: ' + (error.error.message || error.error);
+//     } else {
+//       document.getElementById('status').innerHTML = 'Joined room.';
+//     }
+//   });
+// }
+
 joinRoom() {
-  this.sl.joinRoom({
+this.sl.joinRoom("testxx", {
     audio: true,
     video: true
   }, function (error, success) {
-    if (error) {
-      document.getElementById('status').innerHTML = 'Failed joining room.<br>' +
-  'Error: ' + (error.error.message || error.error);
-    } else {
-      document.getElementById('status').innerHTML = 'Joined room.';
-    }
+    if (error) return;
+    console.log("User connected with getUserMedia() Stream.")
   });
 }
+
+
 leaveRoom(){ this.sl.leaveRoom(); }
 
 /* Helper functions */
