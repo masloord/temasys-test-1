@@ -63,11 +63,6 @@ this.sl.init(this.appKey, function (error, success) {
     this.sl.joinRoom("testxx"); // Goes to "testxx" Room
   });
 
-this.sl.init(this.appKey, function (error, success) {
-    if (error) return;
-    this.sl.joinRoom(); // Goes to default Room
-  });
-
 // this.sl.init({
 //   apiKey: '9ee78bfb-e7ee-4998-b3fd-c77daeccf06f', // Get your own key at https://console.temasys.io
 //   defaultRoom: 'cudy'//getRoomId()
@@ -103,6 +98,10 @@ this.sl.joinRoom("testxx", {
   }, function (error, success) {
     if (error) return;
     console.log("User connected with getUserMedia() Stream.")
+    this.sl.getPeers(true, function (error, success) {
+       if (error) return;
+       console.log("The list of all Peers in the same App space ->", success);
+    });
   });
 }
 
