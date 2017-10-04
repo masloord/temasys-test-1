@@ -106,7 +106,7 @@ this.sl.joinRoom("testxx", {
 }
 
 
-leaveRoom(){ this.sl.leaveRoom(); }
+// leaveRoom(){ this.sl.leaveRoom(); }
 
 /* Helper functions */
  getRoomId() {
