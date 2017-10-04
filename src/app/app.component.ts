@@ -69,15 +69,6 @@ this.sl.init({
   }
 });
 
-
-
-
-/* Helper functions */
-
-
-
-
-
 }
 
 joinRoom() {
@@ -96,4 +87,20 @@ joinRoom() {
   });
 }
 leaveRoom(){ this.sl.leaveRoom(); }
+
+/* Helper functions */
+ getRoomId() {
+  var roomId = document.cookie.match(/roomId=([a-z0-9-]{36})/);
+  if(roomId) {
+    return roomId[1];
+  }
+  else {
+    roomId = this.sl.generateUUID();
+    var date = new Date();
+    date.setTime(date.getTime() + (30*24*60*60*1000));
+    document.cookie = 'roomId=' + roomId + '; expires=' + date.toUTCString() + '; path=/';
+    return roomId;
+  }
+}
+
 }
