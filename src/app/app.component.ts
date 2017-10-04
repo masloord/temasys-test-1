@@ -11,9 +11,10 @@ declare var AdapterJS: any;
 export class AppComponent {
   title = 'app';
  sl = new Skylink()
+ appKey = "9ee78bfb-e7ee-4998-b3fd-c77daeccf06f"
+
 
   constructor() {
-
 
   }
 
@@ -57,23 +58,27 @@ this.sl.on('mediaAccessSuccess', function(stream) {
   AdapterJS.attachMediaStream(vid, stream);
 });
 
-this.sl.init({
-  apiKey: '9ee78bfb-e7ee-4998-b3fd-c77daeccf06f', // Get your own key at https://console.temasys.io
-  defaultRoom: 'GogabE'//getRoomId()
-}, function (error, success) {
-  if (error) {
-    document.getElementById('status').innerHTML = 'Failed retrieval for room information.<br>Error: ' + (error.error.message || error.error);
-  } else {
-       document.getElementById('status').innerHTML = 'Room information has been loaded. Room is ready for user to join.';
-    document.getElementById('start').style.display = 'block';
-  }
-});
+
+this.sl.init(this.appKey, function (error, success) {
+    if (error) return;
+    this.sl.joinRoom(); // Goes to default Room
+  });
+
+// this.sl.init({
+//   apiKey: '9ee78bfb-e7ee-4998-b3fd-c77daeccf06f', // Get your own key at https://console.temasys.io
+//   defaultRoom: 'cudy'//getRoomId()
+// }, function (error, success) {
+//   if (error) {
+//     document.getElementById('status').innerHTML = 'Failed retrieval for room information.<br>Error: ' + (error.error.message || error.error);
+//   } else {
+//        document.getElementById('status').innerHTML = 'Room information has been loaded. Room is ready for user to join.';
+//     document.getElementById('start').style.display = 'block';
+//   }
+// });
 
 }
 
 joinRoom() {
-
-
   this.sl.joinRoom({
     audio: true,
     video: true
