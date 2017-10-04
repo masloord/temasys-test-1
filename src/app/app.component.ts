@@ -56,51 +56,51 @@ this.sl.on('mediaAccessSuccess', function(stream) {
 });
 
 
-// this.sl.init(this.appKey, function (error, success) {
-//     this.sl.joinRoom("testxx"); // Goes to "testxx" Room
-//   });
-
-this.sl.init({
-  apiKey: '9ee78bfb-e7ee-4998-b3fd-c77daeccf06f', // Get your own key at https://console.temasys.io
-  defaultRoom: 'GogabE' //this.getRoomId()
-}, function (error, success) {
-  if (error) {
-    document.getElementById('status').innerHTML = 'Failed retrieval for room information.<br>Error: ' + (error.error.message || error.error);
-  } else {
-       document.getElementById('status').innerHTML = 'Room information has been loaded. Room is ready for user to join.';
-    document.getElementById('start').style.display = 'block';
-  }
-});
-
-}
-
-joinRoom() {
-  this.sl.joinRoom({
-    audio: true,
-    video: true
-  }, function (error, success) {
-    if (error) {
-      document.getElementById('status').innerHTML = 'Failed joining room.<br>' +
-  'Error: ' + (error.error.message || error.error);
-    } else {
-      document.getElementById('status').innerHTML = 'Joined room.';
-    }
+this.sl.init(this.appKey, function (error, success) {
+    this.sl.joinRoom("testxx"); // Goes to "testxx" Room
   });
+
+// this.sl.init({
+//   apiKey: '9ee78bfb-e7ee-4998-b3fd-c77daeccf06f', // Get your own key at https://console.temasys.io
+//   defaultRoom: 'GogabE' //this.getRoomId()
+// }, function (error, success) {
+//   if (error) {
+//     document.getElementById('status').innerHTML = 'Failed retrieval for room information.<br>Error: ' + (error.error.message || error.error);
+//   } else {
+//        document.getElementById('status').innerHTML = 'Room information has been loaded. Room is ready for user to join.';
+//     document.getElementById('start').style.display = 'block';
+//   }
+// });
+
 }
 
 // joinRoom() {
-// this.sl.joinRoom("testxx", {
+//   this.sl.joinRoom({
 //     audio: true,
 //     video: true
 //   }, function (error, success) {
-//     if (error) return;
-//     console.log("User connected with getUserMedia() Stream.")
-//     this.sl.getPeers(true, function (error, success) {
-//        if (error) return;
-//        console.log("The list of all Peers in the same App space ->", success);
-//     });
+//     if (error) {
+//       document.getElementById('status').innerHTML = 'Failed joining room.<br>' +
+//   'Error: ' + (error.error.message || error.error);
+//     } else {
+//       document.getElementById('status').innerHTML = 'Joined room.';
+//     }
 //   });
 // }
+
+joinRoom() {
+this.sl.joinRoom("testxx", {
+    audio: true,
+    video: true
+  }, function (error, success) {
+    if (error) return;
+    console.log("User connected with getUserMedia() Stream.")
+    this.sl.getPeers(true, function (error, success) {
+       if (error) return;
+       console.log("The list of all Peers in the same App space ->", success);
+    });
+  });
+}
 
 
 leaveRoom(){ this.sl.leaveRoom(); }
