@@ -60,8 +60,9 @@ this.sl.init(this.appKey, function (error, success) {
     if (error) {
        document.getElementById('status').innerHTML = 'Failed retrieval for room information.<br>Error: ' + (error.error.message || error.error);
      } else {
-          document.getElementById('status').innerHTML = 'Room information has been loaded. Room is ready for user to join.';
+       document.getElementById('status').innerHTML = 'Room information has been loaded. Room is ready for user to join.';
        document.getElementById('start').style.display = 'block';
+       this.sl.joinRoom("testxx");
      }
   });
 
@@ -94,7 +95,7 @@ this.sl.init(this.appKey, function (error, success) {
 // }
 
 joinRoom() {
-this.sl.joinRoom({
+this.sl.joinRoom("testxx",{
     audio: true,
     video: true
   }, function (error, success) {
