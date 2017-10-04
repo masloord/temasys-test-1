@@ -62,7 +62,7 @@ this.sl.on('mediaAccessSuccess', function(stream) {
 
 this.sl.init({
   apiKey: '9ee78bfb-e7ee-4998-b3fd-c77daeccf06f', // Get your own key at https://console.temasys.io
-  defaultRoom: this.getRoomId()
+  defaultRoom: 'cudy'//getRoomId()
 }, function (error, success) {
   if (error) {
     document.getElementById('status').innerHTML = 'Failed retrieval for room information.<br>Error: ' + (error.error.message || error.error);
@@ -74,19 +74,19 @@ this.sl.init({
 
 }
 
-joinRoom() {
-  this.sl.joinRoom({
-    audio: true,
-    video: true
-  }, function (error, success) {
-    if (error) {
-      document.getElementById('status').innerHTML = 'Failed joining room.<br>' +
-  'Error: ' + (error.error.message || error.error);
-    } else {
-      document.getElementById('status').innerHTML = 'Joined room.';
-    }
-  });
-}
+// joinRoom() {
+//   this.sl.joinRoom({
+//     audio: true,
+//     video: true
+//   }, function (error, success) {
+//     if (error) {
+//       document.getElementById('status').innerHTML = 'Failed joining room.<br>' +
+//   'Error: ' + (error.error.message || error.error);
+//     } else {
+//       document.getElementById('status').innerHTML = 'Joined room.';
+//     }
+//   });
+// }
 
 // joinRoom() {
 // this.sl.joinRoom("testxx", {
