@@ -93,12 +93,17 @@ this.sl.joinRoom("testxx", {
     audio: true,
     video: true
   }, function (error, success) {
-    if (error) return;
-    console.log("User connected with getUserMedia() Stream.")
-    this.sl.getPeers(true, function (error, success) {
-       if (error) return;
-       console.log("The list of all Peers in the same App space ->", success);
-    });
+    if (error) {
+        document.getElementById('status').innerHTML = 'Failed retrieval for room information.<br>Error: ' + (error.error.message || error.error);
+      } else {
+           document.getElementById('status').innerHTML = 'Room information has been loaded. Room is ready for user to join.';
+        document.getElementById('start').style.display = 'block';
+        console.log("User connected with getUserMedia() Stream.")
+        this.sl.getPeers(true, function (error, success) {
+           if (error) return;
+           console.log("The list of all Peers in the same App space ->", success);
+        });
+      }
   });
 }
 
