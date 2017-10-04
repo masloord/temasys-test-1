@@ -98,10 +98,10 @@ this.sl.joinRoom("testxx", {
   }, function (error, success) {
     if (error) return;
     console.log("User connected with getUserMedia() Stream.")
-    // this.sl.getPeers(true, function (error, success) {
-    //    if (error) return;
-    //    console.log("The list of all Peers in the same App space ->", success);
-    // });
+    this.sl.getPeers(true, function (error, success) {
+       if (error) return;
+       console.log("The list of all Peers in the same App space ->", success);
+    });
   });
 }
 
