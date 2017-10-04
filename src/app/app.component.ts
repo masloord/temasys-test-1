@@ -57,13 +57,12 @@ this.sl.on('mediaAccessSuccess', function(stream) {
 
 
 this.sl.init(this.appKey, function (error, success) {
-    this.sl.joinRoom("testxx");
     if (error) {
        document.getElementById('status').innerHTML = 'Failed retrieval for room information.<br>Error: ' + (error.error.message || error.error);
      } else {
           document.getElementById('status').innerHTML = 'Room information has been loaded. Room is ready for user to join.';
        document.getElementById('start').style.display = 'block';
-     }// Goes to "testxx" Room
+     }
   });
 
 // this.sl.init({
@@ -95,7 +94,7 @@ this.sl.init(this.appKey, function (error, success) {
 // }
 
 joinRoom() {
-this.sl.joinRoom("testxx", {
+this.sl.joinRoom({
     audio: true,
     video: true
   }, function (error, success) {
