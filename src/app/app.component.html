@@ -1,8 +1,27 @@
-  <p id="status">Loading room information...</p>
+  <div class= container-fluid>
+    <p id="status">Loading room information...</p>
     <div id="start">
-<video id="localVideo" autoplay muted></video>
-<div id="peerVideoList"></div>
-<button type="button" (click)="joinRoom()">Start Call</button>
-<button type="button" (click)="leaveRoom()">End Call</button>
-
+<div id="peerVideoList">
+  <video id="localVideo" autoplay muted></video>
+</div>
+<button type="button" class="btn btn-primary" (click)="joinRoom()">Start Call</button>
+<button type="button" class="btn btn-primary" (click)="leaveRoom()">End Call</button>
   </div>
+
+
+  <ngx-carousel
+        [inputs]="carouselTile"
+        [inputsLength]="carouselTileItems.length"
+        (carouselLoad)="carouselTileLoad($event)">
+
+              <ngx-tile id="videoattached" *ngFor="let Tile of carouselTileItems">
+
+              </ngx-tile>
+
+
+
+
+          <button class='leftRs'><</button>
+          <button class='rightRs'>></button>
+      </ngx-carousel>
+</div>
