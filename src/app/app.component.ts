@@ -19,18 +19,13 @@ export class AppComponent {
   items: Array<any> = []
   public carouselTileItems: Array<any>;
   public carouselTile: Carousel;
-  public carouselTileLoad(evt: any) {
-     const len = this.carouselTileItems.length
-       for (let i = len; i <len; i++) {
-         this.carouselTileItems.push(i);
-       }
-   }
+
 
   constructor() {
   }
 
   ngOnInit() {
-    this.carouselTileItems = [1,2,3,4];
+    this.carouselTileItems = [];
     this.carouselTile = {
       grid: {xs: 2, sm: 3, md: 3, lg: 3, all: 0},
       custom: 'tile',
@@ -56,6 +51,8 @@ this.sl.on('peerJoined', function(peerId, peerInfo, isSelf) {
   if(isSelf) return; // We already have a video element for our video and don't need to create a new one.
   var vid = document.createElement('video');
   vid.autoplay = true;
+  vid.height = 300;
+  vid.width=300;
   vid.muted = true; // Added to avoid feedback when testing locally
   vid.id = peerId;
   document.body.appendChild(vid);
@@ -74,7 +71,8 @@ this.sl.on('incomingStream', function(peerId, stream, isSelf) {
 
 this.sl.on('peerLeft', function(peerId) {
   var vid = document.getElementById(peerId);
-  document.body.removeChild(vid);
+  var videoattached=document.getElementById('videoattached')
+  videoattached.removeChild(vid);
 });
 
 this.sl.on('mediaAccessSuccess', function(stream) {

@@ -23,3 +23,8 @@ h1{
      text-align: center;
      line-height: 200px;
    }
+
+#localVideo{
+  height: auto;
+  width: 25%;
+}

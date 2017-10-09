@@ -13,14 +13,8 @@
         [inputs]="carouselTile"
         [inputsLength]="carouselTileItems.length"
         (carouselLoad)="carouselTileLoad($event)">
-
-              <ngx-tile id="videoattached" *ngFor="let Tile of carouselTileItems">
-
-              </ngx-tile>
-
-
-
-
+          <ngx-tile id="videoattached">
+          </ngx-tile>
           <button class='leftRs'><</button>
           <button class='rightRs'>></button>
       </ngx-carousel>
