@@ -11,7 +11,7 @@ import 'hammerjs';
   ],
   imports: [
     BrowserModule,
-    NgxCarouselModule
+    NgxCarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
