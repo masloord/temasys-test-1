@@ -53,7 +53,7 @@ this.sl.on('peerJoined', function(peerId, peerInfo, isSelf) {
   vid.autoplay = true;
   vid.height = 300;
   vid.width=300;
-  vid.muted = true; // Added to avoid feedback when testing locally
+  vid.muted = false; // Added to avoid feedback when testing locally
   vid.id = peerId;
   document.body.appendChild(vid);
 
@@ -111,6 +111,19 @@ this.sl.joinRoom("testxx",{
 
 leaveRoom(){ this.sl.leaveRoom(); }
 
+enableMute(){
+  this.sl.muteStream({
+    audioMuted: true,
+   videoMuted: false
+  });
+}
+
+unableMute(){
+  this.sl.muteStream({
+    audioMuted: false,
+   videoMuted: false
+  });
+}
 /* Helper functions */
  getRoomId() {
   var roomId = document.cookie.match(/roomId=([a-z0-9-]{36})/);
