@@ -7,7 +7,5 @@ export class Carousel {
   animation?: string;
   point?: boolean;
   load?: number;
-  custom?: string;
   touch?: boolean;
-  dynamicLength: boolean;
 }

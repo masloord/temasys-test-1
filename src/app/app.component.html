@@ -1,23 +1,35 @@
-  <div class= container-fluid>
-    <p id="status">Loading room information...</p>
-    <div id="start">
-  <div id="peerVideoList">
-  <video id="localVideo" autoplay muted></video>
-</div>
-<button type="button" class="btn btn-primary" (click)="joinRoom()">Start Call</button>
-<button type="button" class="btn btn-primary" (click)="leaveRoom()">End Call</button>
-<button type="button" class="btn btn-primary pull-right" (click)="enableMute()">Mute</button>
-<button type="button" class="btn btn-primary pull-right" (click)="unableMute()">Unmute</button>
+<div class="container-fluid">
+  <p id="status">Loading room information...</p>
+  <div id="start">
+    <div id="peerVideoList">
+      <video id="localVideo" autoplay muted></video>
+    </div>
+    <button type="button" class="btn btn-warning" (click)="joinRoom()">Start Call</button>
+    <button type="button" class="btn btn-warning" (click)="leaveRoom()">End Call</button>
 
+    <label class="switch switch-text switch-pill switch-warning pull-right">
+    <input type="checkbox" id="muteToggle" (click)="toggleMute()" class="switch-input">
+    <span class="switch-label" data-on="On" data-off="Off"></span>
+    <span class="switch-handle"></span>
+</label>
+    <span class="pull-right">Mute:</span>
   </div>
 
+<div class="studentClassContainer">
+  <ngx-carousel id="tilecreation" [inputs]="carouselTile">
+    <button NgxCarouselPrev class='leftRs'><</button>
+    <button NgxCarouselNext class='rightRs'>></button>
+  </ngx-carousel>
+</div>
 
-  <ngx-carousel
-        [inputs]="carouselTile"
-        [inputsLength]="carouselTileItems.length">
-          <ngx-tile id="videoattached" class="videoStyle">
-          </ngx-tile>
-          <button class='leftRs'><</button>
-          <button class='rightRs'>></button>
-      </ngx-carousel>
+<!-- <ngx-carousel
+      [inputs]="carouselTile">
+            <ngx-tile NgxCarouselItem *ngFor="let Tile of carouselTileItems">
+                <div id={{Tile}}>
+                </div>
+            </ngx-tile>
+          <button NgxCarouselPrev class='leftRs'>&lt;</button>
+          <button NgxCarouselNext class='rightRs'>&gt;</button>
+    </ngx-carousel> -->
+
 </div>
